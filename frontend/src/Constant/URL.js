@@ -1,0 +1,1 @@
+export const API_URL = "https://65fbd70714650eb2100ac3b7.mockapi.io/savingSegments";
