@@ -54,6 +54,7 @@ function SavingSegment() {
   const [count, setCount] = useState(0);
   const handleButtonClick = () => {
     setCount(count + 1);
+    setSegmentSchema("")
   };
   const renderSelect = () => {
     return (
@@ -62,6 +63,7 @@ function SavingSegment() {
         value={segmentSchema}
         onChange={HandlingSchema}
       >
+        <option selected>Add new Schema</option>
         {options.map((option) => (
           <option key={option.value}>{option.label}</option>
         ))}
@@ -101,13 +103,14 @@ function SavingSegment() {
               To save your segment, you need to add the schemas to build the
               query
             </p>
-
-            {[...Array(count)].map((_, index) => (
-              <div key={index}>
-                {renderSelect()}
-                <br />
-              </div>
-            ))}
+            <div className="border border-primary">
+                {[...Array(count)].map((_, index) => (
+                <div key={index}>
+                  {renderSelect()}
+                  <br />
+                </div>
+                ))}
+            </div>
 
             <select
               className="form-select my-2"
